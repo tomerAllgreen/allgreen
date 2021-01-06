@@ -8,18 +8,15 @@
 <script>
 export default {
   data() {
-    return {
-    };
+    return {};
   },
-  emits: ['toggle-display'],
+  emits: ["toggle-display"],
   methods: {
-    toggleDisplay(){
-      this.$emit('toggle-display')
+    toggleDisplay() {
+      this.$emit("toggle-display");
     },
   },
-  computed: {
-
-    },
+  computed: {},
 };
 </script>
 
