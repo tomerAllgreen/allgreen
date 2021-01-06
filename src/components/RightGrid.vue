@@ -27,9 +27,7 @@ import leadsArea from "./leadsArea.vue";
 
 export default {
   data() {
-    return {
-      isHidden: false
-    };
+    return {};
   },
   components: {
     allgreenHeader,

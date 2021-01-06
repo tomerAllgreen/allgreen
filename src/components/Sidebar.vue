@@ -1,12 +1,16 @@
 <template>
   <div class="sidebar">
-    <div class="grid-container" >
+    <div class="grid-container">
       <LeftGrid
         id="left-grid"
         class="leftStyle"
         @toggle-display="toggleDisplay"
       ></LeftGrid>
-       <RightGrid id="right-grid" class="rightStyle" v-show="isHidden"></RightGrid>
+      <RightGrid
+        id="right-grid"
+        class="rightStyle"
+        v-show="isHidden"
+      ></RightGrid>
     </div>
     <!-- <minLeftSidebar class="minLeftSidebar" @toggle-display="toggleDisplay" v-else></minLeftSidebar> -->
   </div>
@@ -24,13 +28,13 @@ export default {
   },
   components: {
     LeftGrid,
-   RightGrid,
-  //  minLeftSidebar,
+    RightGrid,
+    //  minLeftSidebar,
   },
   computed: {},
   methods: {
     toggleDisplay() {
-      this.isHidden != this.isHidden;
+      this.isHidden = !this.isHidden;
     },
   },
 };
@@ -41,9 +45,8 @@ export default {
 .grid-container {
   display: grid;
   height: 100vh;
-  width: 25vw;
+  width: minmax(auto, 25vw);
   float: right;
-  grid-template-columns: 1fr 6fr;
   border: 1px solid black;
   grid-template-areas: "leftGrid rightGrid";
 }
@@ -51,18 +54,15 @@ export default {
 .leftStyle {
   grid-area: leftGrid;
   background: #333f46;
-  float: right;
 }
 .rightStyle {
   grid-area: rightGrid;
-  float: right;
 }
 
 .minLeftSidebar {
   display: grid;
   height: 100vh;
   width: 3vw;
-  float: right;
 
   border: 1px solid black;
   background: #333f46;
