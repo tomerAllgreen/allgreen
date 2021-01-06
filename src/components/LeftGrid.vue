@@ -1,7 +1,11 @@
 <template>
   <div class="LeftGrid">
-    <svg class="exitIcon"></svg>
-    <svg class="rightFillIcon" @click="toggleDisplay"></svg>
+    <svg class="exitIcon" @click="closeSidebar"></svg>
+    <svg
+      class="rightFillIcon"
+      :class="{right: !isHidden}"
+      @click="toggleDisplay"
+    ></svg>
   </div>
 </template>
 
@@ -10,10 +14,19 @@ export default {
   data() {
     return {};
   },
-  emits: ["toggle-display"],
+  props:{
+    isHidden: {
+      type: Boolean,
+      required: true,
+    },
+  },
+  emits: ["toggle-display", "close-sidebar"],
   methods: {
     toggleDisplay() {
       this.$emit("toggle-display");
+    },
+    closeSidebar() {
+      this.$emit("close-sidebar");
     },
   },
   computed: {},
@@ -27,6 +40,7 @@ export default {
   background-size: contain;
   width: 45px;
   height: 45px;
+  vertical-align: top;
 }
 .rightFillIcon {
   background-image: url("../assets/caret-right-fill.svg");
@@ -34,5 +48,9 @@ export default {
   width: 33px;
   height: 34px;
   margin-top: 50vh;
+}
+
+.right {
+  background-image: url("../assets/caret-left-fill.svg");
 }
 </style>

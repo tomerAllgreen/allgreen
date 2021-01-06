@@ -5,6 +5,8 @@
         id="left-grid"
         class="leftStyle"
         @toggle-display="toggleDisplay"
+        @close-sidebar="closeSidebar"
+        :is-hidden="isHidden"
       ></LeftGrid>
       <RightGrid
         id="right-grid"
@@ -12,13 +14,11 @@
         v-show="isHidden"
       ></RightGrid>
     </div>
-    <!-- <minLeftSidebar class="minLeftSidebar" @toggle-display="toggleDisplay" v-else></minLeftSidebar> -->
   </div>
 </template>
 <script>
 import LeftGrid from "./LeftGrid.vue";
 import RightGrid from "./RightGrid.vue";
-//import minLeftSidebar from "./minLeftSidebar";
 
 export default {
   data() {
@@ -29,13 +29,15 @@ export default {
   components: {
     LeftGrid,
     RightGrid,
-    //  minLeftSidebar,
   },
   computed: {},
   methods: {
     toggleDisplay() {
       this.isHidden = !this.isHidden;
     },
+    closeSidebar() {
+
+    }
   },
 };
 </script>
@@ -53,7 +55,10 @@ export default {
 
 .leftStyle {
   grid-area: leftGrid;
+  display: flex;
+  flex-direction: column;
   background: #333f46;
+  max-width: 45px;
 }
 .rightStyle {
   grid-area: rightGrid;
