@@ -37,29 +37,24 @@ h2 {
   text-align: left;
   color: #284817;
   margin-top: 50%;
-  margin-left: 150%;
+  margin-left:100%;
 }
 .circlePrecent {
   position: relative;
   width: 90px;
   height: 90px;
+      margin-left:5%;
+
 }
-.circlePrecent svg {
-  position: relative;
-  width: 100px;
-  height: 100px;
-  margin-left:10%;
-}
+
 .circlePrecent svg circle {
   position: relative;
-  width: 100px;
-  height: 100px;
   fill: none;
   stroke-width: 10;
   stroke: #0000;
   transform: translate(5px, 5px);
-  stroke-dasharray: 220;
-  stroke-dashoffset: 220;
+  stroke-dasharray: 100%;
+  stroke-dashoffset: 100%;
   stroke-linecap: round;
 }
 .circlePrecent svg circle:nth-child(1) {
@@ -67,7 +62,7 @@ h2 {
   stroke: #f3f3f3;
 }
 .circlePrecent svg circle:nth-child(2) {
-  stroke-dashoffset: calc(220 - (220 * 70) / 100);
+  stroke-dashoffset: calc(100% - 70%);
   stroke: rgba(40, 72, 23, 1);
 }
 .circlePrecent .number {
@@ -77,5 +72,6 @@ h2 {
   justify-content: center;
   align-items: center;
   color: black;
+  text-align:center;
 }
 </style>
